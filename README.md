@@ -5,31 +5,27 @@
 
 | 类别  | 文件名  | 更新频率                                       | 短链 | 镜像   |
 |-------|-------|------------------------------------------------|------------|------------|
-|直播源| （[merged_output.txt](https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt)） |每日 |~~http://gg.gg/tv-live-txt~~|~~http://gg.gg/tv-live-txt-mirr~~|
-|直播源| （[merged_output.m3u](https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.m3u)） |每日 |~~http://gg.gg/tv-live-m3u~~|~~http://gg.gg/tv-live-m3u-mirr~~|
+|直播源| （[merged_output.txt](https://ghproxy.net/https://raw.githubusercontent.com/haohuaZhang/collect-tv-txt/refs/heads/main/merged_output.txt)） |每日 |~~http://gg.gg/tv-live-txt~~|~~http://gg.gg/tv-live-txt-mirr~~|
+|直播源| （[merged_output.m3u](https://ghproxy.net/https://raw.githubusercontent.com/haohuaZhang/collect-tv-txt/refs/heads/main/merged_output.m3u)） |每日 |~~http://gg.gg/tv-live-m3u~~|~~http://gg.gg/tv-live-m3u-mirr~~|
 |黑名单| （blacklist_auto.txt） |  不定时 | 无效直播源自动过滤   | |
 |白名单| （whitelist_auto.txt） |  不定时 | 高响应源汇至直播源   | |
 
 ```
-https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt
+[https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt](https://ghproxy.net/https://raw.githubusercontent.com/haohuaZhang/collect-tv-txt/refs/heads/main/merged_output.txt)
 ```
 ```
-https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.m3u
+[https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.m3u](https://ghproxy.net/https://raw.githubusercontent.com/haohuaZhang/collect-tv-txt/refs/heads/main/merged_output.m3u)
 ```
-直播源（txt）短链（Backup）： https://tinyurl.com/tv-live-txt
+直播源（txt）短链（Backup）： [https://tinyurl.com/ai-chi-fan-txt](https://tinyurl.com/ai-chi-fan-txt)
 
-直播源（m3u）短链（Backup）： https://tinyurl.com/tv-live-m3u
+直播源（m3u）短链（Backup）： [https://tinyurl.com/ai-chi-fan-m3u](https://tinyurl.com/ai-chi-fan-m3u)
 
 
-## 公众号・赞赏（觉得好的话，请作者喝咖啡，鼓励更新！）
-
-> 关注获取更多信息，有问题公众号留言。
-
-> 公平起见赞赏的朋友加微信群交流。公众号私信暗号：咖啡来了！
+## 如果对您有帮助，请赞赏，您的赞赏是我更新的动力~
 
 ![image](./assets/Gongzhonghao+appreciate.png)
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=kimwang1978/collect-tv-txt&type=Date)](https://star-history.com/#kimwang1978/collect-tv-txt&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=haohuaZhang/collect-tv-txt&type=Date)](https://star-history.com/#haohuaZhang/collect-tv-txt&Date)
 
