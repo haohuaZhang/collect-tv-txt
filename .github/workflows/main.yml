@@ -23,16 +23,13 @@ jobs:
       with:
         python-version: '3.10'
         
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-
     - name: Pull latest code from upstream repository
       run: |
         git remote add upstream https://github.com/kimwang1978/collect-tv-txt.git || true
         git fetch upstream
-        # 强制将本地main分支与上游的main分支同步
-        git reset --hard upstream/main
+        git checkout main
+        # 合并上游项目的最新更改
+        git merge upstream/main --allow-unrelated-histories
 
     - name: Modify main.py
       run: |
@@ -67,7 +64,7 @@ jobs:
         git add history/"${current_datetime}_others_output.txt"
         git commit -m "Archive file with timestamp"
           
-    - name: Push changes
+    - name: Push changes to my forked repository
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
