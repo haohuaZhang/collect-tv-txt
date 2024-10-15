@@ -64,9 +64,11 @@ jobs:
           done
         fi
 
-    - name: Modify main.py
+    - name: Modify main.py to set about and about_video1 to empty strings
       run: |
         sed -i 's/about=.*/about=""/' main.py
+        sed -i 's/about_video1=.*/about_video1=""/' main.py
+        sed -i 's/about_video2=.*/about_video2=""/' main.py
 
     - name: Run Python script
       run: python main.py
