@@ -23,9 +23,7 @@ https://ghproxy.net/https://raw.githubusercontent.com/haohuaZhang/collect-tv-txt
 
 ## 如果对您有帮助，请赞赏，您的赞赏是我更新的动力~
 
-![image](./assets/Gongzhonghao+appreciate.png)
+<img src="./assets/Gongzhonghao+appreciate.png" alt="Sample Image" width="350">
 
-## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=haohuaZhang/collect-tv-txt&type=Date)](https://star-history.com/#haohuaZhang/collect-tv-txt&Date)
 
