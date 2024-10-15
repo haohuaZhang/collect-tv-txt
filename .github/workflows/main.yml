@@ -33,17 +33,16 @@ jobs:
         git remote add upstream https://github.com/kimwang1978/collect-tv-txt.git || true
         git fetch upstream
         git checkout main
-        # 尝试合并上游项目的最新更改，保留本地版本
+        # 尝试合并上游项目的最新更改
         git merge upstream/main --allow-unrelated-histories || true
         
     # 检查合并冲突并解决，保留本地分支的 .github/workflows/main.yml
     - name: Resolve merge conflicts for main.yml
-      if: ${{ failure() }}  # 仅在上一步合并失败时执行
       run: |
         if git ls-files -u | grep '.github/workflows/main.yml'; then
           echo "Merge conflict detected in .github/workflows/main.yml, keeping current branch version"
           git checkout --ours .github/workflows/main.yml
-          git add .github/workflows/main.yml
+          git add .github/workflows/main.yml  # 手动标记冲突文件为已解决
           git commit -m "Resolved conflict by keeping current branch version of main.yml"
         fi
 
