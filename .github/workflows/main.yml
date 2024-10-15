@@ -2,7 +2,7 @@ name: 'Daily Job'
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # 每天UTC时间00:00运行
+    - cron: '0 1 * * *'  # 每天UTC时间01:00运行
   workflow_dispatch:
     inputs:
       environment:
@@ -26,13 +26,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        
+
     - name: Pull latest code from upstream repository
       run: |
-        git remote add upstream https://github.com/kimwang1978/collect-tv-txt.git
+        git remote add upstream https://github.com/kimwang1978/collect-tv-txt.git || true
         git fetch upstream
-        git merge upstream/main --allow-unrelated-histories
-        
+        # 强制将本地main分支与上游的main分支同步
+        git reset --hard upstream/main
+
+    - name: Modify main.py
+      run: |
+        sed -i 's/about="关于本源,"+about_video2/about=""/' main.py
+
     - name: Run Python script
       run: python main.py
       
@@ -46,21 +51,21 @@ jobs:
           
     - name: Commit changes
       run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add merged_output.txt
-          git add merged_output.m3u
-          git add merged_output_simple.txt
-          git add merged_output_simple.m3u
-          git add others_output.txt
-          git commit -m ":tada: AutoUpdate $(date +'%Y%m%d')"
-          
-          current_datetime=$(date +"%Y%m%d_%H%M%S")
-          cp merged_output.txt history/"${current_datetime}_merged_output.txt"
-          cp others_output.txt history/"${current_datetime}_others_output.txt"
-          git add history/"${current_datetime}_merged_output.txt"
-          git add history/"${current_datetime}_others_output.txt"
-          git commit -m "Archive file with timestamp"
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git add merged_output.txt
+        git add merged_output.m3u
+        git add merged_output_simple.txt
+        git add merged_output_simple.m3u
+        git add others_output.txt
+        git commit -m ":tada: AutoUpdate $(date +'%Y%m%d')"
+        
+        current_datetime=$(date +"%Y%m%d_%H%M%S")
+        cp merged_output.txt history/"${current_datetime}_merged_output.txt"
+        cp others_output.txt history/"${current_datetime}_others_output.txt"
+        git add history/"${current_datetime}_merged_output.txt"
+        git add history/"${current_datetime}_others_output.txt"
+        git commit -m "Archive file with timestamp"
           
     - name: Push changes
       uses: ad-m/github-push-action@master
