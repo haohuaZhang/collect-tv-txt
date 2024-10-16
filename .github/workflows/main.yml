@@ -37,20 +37,20 @@ jobs:
         git merge upstream/main --allow-unrelated-histories || true
 
     # 检查合并冲突并解决，保留本地分支的 .github/workflows/main.yml 和 README.md
-    - name: Resolve merge conflicts for main.yml and README.md
-      run: |
-        conflict_files=$(git ls-files -u | awk '{print $4}' | sort -u)
-        if [[ "$conflict_files" == *".github/workflows/main.yml"* ]] || [[ "$conflict_files" == *"README.md"* ]]; then
-          echo "Merge conflict detected in .github/workflows/main.yml or README.md, keeping current branch version"
+    # - name: Resolve merge conflicts for main.yml and README.md
+    #   run: |
+    #     conflict_files=$(git ls-files -u | awk '{print $4}' | sort -u)
+    #     if [[ "$conflict_files" == *".github/workflows/main.yml"* ]] || [[ "$conflict_files" == *"README.md"* ]]; then
+    #       echo "Merge conflict detected in .github/workflows/main.yml or README.md, keeping current branch version"
           
-          # 保留本地分支的 .github/workflows/main.yml 和 README.md 文件
-          git checkout --ours .github/workflows/main.yml
-          git checkout --ours README.md
+    #       # 保留本地分支的 .github/workflows/main.yml 和 README.md 文件
+    #       git checkout --ours .github/workflows/main.yml
+    #       git checkout --ours README.md
           
-          # 标记这些文件为已解决
-          git add .github/workflows/main.yml
-          git add README.md
-        fi
+    #       # 标记这些文件为已解决
+    #       git add .github/workflows/main.yml
+    #       git add README.md
+    #     fi
 
     # 处理所有其他未解决的冲突文件，保留本地分支的版本
     - name: Resolve remaining conflicts by keeping local changes
@@ -63,6 +63,7 @@ jobs:
             git add "$file"
           done
         fi
+
 
     - name: Modify main.py to set about and about_video1 to empty strings
       run: |
