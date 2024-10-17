@@ -36,7 +36,7 @@ jobs:
         # 尝试合并上游项目的最新更改
         git merge upstream/main --allow-unrelated-histories || true
 
-    # 检查合并冲突并解决，保留本地分支的 .github/workflows/main.yml 和 README.md
+    # 检查合并冲突并解决，保留本地分支的  .github/workflows/main.yml 和 README.md
     # - name: Resolve merge conflicts for main.yml and README.md
     #   run: |
     #     conflict_files=$(git ls-files -u | awk '{print $4}' | sort -u)
